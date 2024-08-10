@@ -17,7 +17,7 @@ const Hero = (props: Props) => {
                 <div className=' mt-10'>
                     <Link 
                         className={'bg-black text-white py-3 px-5 rounded-full mt-6 hover:opacity-75 transition hover:cursor-pointer md:text-3xl '} 
-                        href='mailto:buxincorporated@gmail.com'
+                        href='unityliquidation@gmail.com'
                         >
                         Work with Us
                     </Link>  
