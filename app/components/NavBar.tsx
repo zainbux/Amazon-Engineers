@@ -1,6 +1,7 @@
 import React from 'react'
 import ContactButton from './ContactButton'
 import Logo from './Logo'
+import OfferButton from './offerButton'
 
 type Props = {}
 
@@ -12,7 +13,7 @@ export const NavBar = (props: Props) => {
         </div>
         <div className='hidden md:block space-x-3' >
             <ContactButton title={'Work with Us'}/>
-            <ContactButton title={'Join the Team'} isSpecial={true}/>
+            <OfferButton title={'Join the Team'} isSpecial={true}/>
 
         </div>
     </div>
