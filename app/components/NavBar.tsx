@@ -6,7 +6,7 @@ type Props = {}
 
 export const NavBar = (props: Props) => {
   return (
-    <div className='flex bg-slate-950 justify-center md:justify-between h-[100px] drop-shadow-xl shadow-lg md:px-32 items-center'>
+    <div className='flex bg-black justify-center md:justify-between h-[100px]  drop-shadow-xl shadow-lg md:px-32 items-center'>
         <div>
             <Logo/>
         </div>

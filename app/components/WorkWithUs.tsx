@@ -42,13 +42,13 @@ const WorkWithUs = () => {
     };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center  sm:py-30 sm:py-0">
       <div className="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-5xl p-5 lg:p-10">
         
         {/* Left Side: Image */}
         <div className="lg:w-1/2 flex items-center justify-center">
           <img 
-            src="/path-to-your-image.jpg" // Replace with your image path
+            src="/city.jpg" // Replace with your image path
             alt="Work with Us"
             className="object-cover rounded-lg w-full h-64 lg:h-full"
           />

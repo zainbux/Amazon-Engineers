@@ -5,7 +5,7 @@ import Compare from "./components/Compare";
 export default function Home() {
   return (
     <main>
-      <div className="bg-[url('/grid-pattern.svg')] bg-slate-200 bg-repeat">
+      <div className=" bg-slate-950 bg-repeat sm:min-h-screen">
         <Hero/>
       </div>
 

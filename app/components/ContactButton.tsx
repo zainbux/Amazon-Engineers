@@ -13,7 +13,7 @@ const ContactButton = ({ title, isSpecial = false }: ContactButtonProps) => {
   return (
     <Link 
       className={`py-3 px-5 rounded-full hover:opacity-75 transition hover:cursor-pointer w-36 
-        ${isSpecial ? 'bg-slate-200 text-black font-bold' : 'bg-slate-500 text-white'}`} 
+        ${isSpecial ? 'bg-slate-200 text-black font-bold' : 'bg-slate-200 text-blacks font-bold'}`} 
       href='/workwithus'
     >
       {title}
