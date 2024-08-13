@@ -12,7 +12,7 @@ const Footer = (props: Props) => {
   const router = useRouter()
 
   return (
-    <div className=' bg-black md:h-[20vh] justify-center flex flex-col items-center gap-3 sm:py-7 md:flex-row md:gap-20 py-3 px-5'>
+    <div className=' bg-black md:h-[20vh] justify-center flex flex-col items-center gap-3 sm:py-7 md:flex-row md:gap-20 py-3 px-5 pb-7'>
         <div className='flex gap-5'>
           <FaMailBulk className='text-5xl text-white'/>
         
