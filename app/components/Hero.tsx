@@ -44,7 +44,7 @@ const Hero = (props: Props) => {
     </p>
     <div className='mt-10'>
         <Link 
-            className={"bg-black text-white py-3 px-5 rounded-full mt-6 hover:opacity-75 transition hover:cursor-pointer md:text-3xl border border-white"} 
+            className={"bg-black text-white py-3 px-5 rounded-2xl mt-6 hover:opacity-75 transition hover:cursor-pointer md:text-3xl border border-white"} 
             href='/workwithus'
         >
             Scale Now

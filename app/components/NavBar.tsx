@@ -12,8 +12,10 @@ export const NavBar = (props: Props) => {
             <Logo/>
         </div>
         <div className='hidden md:block space-x-3' >
-            <ContactButton title={'Work with Us'}/>
-            <OfferButton title={'Join the Team'} isSpecial={true}/>
+            <ContactButton title={'Start Now'}/>
+            <OfferButton title={'What We Offer'} isSpecial={true}/>
+            <ContactButton title={'Refferal Program'}/>
+
 
         </div>
     </div>

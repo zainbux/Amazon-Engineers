@@ -2,7 +2,7 @@ import React from 'react';
 
 const Offer = () => {
   return (
-    <div className='py-28 px-5 md:px-20 lg:px-36'>
+    <div className='py-40 px-5 md:px-20 lg:px-36'>
       <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-10 text-white'>
         Timeline and Detailed Explanation for Amazon Agency Clients
       </h1>

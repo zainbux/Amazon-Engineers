@@ -18,12 +18,6 @@ const config = {
       },
     },
     extend: {
-      boxShadow: {
-        'glow': '0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5)',
-      },
-      backgroundImage: {
-        'grid-pattern': "url('/grid-pattern.svg')",
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -73,16 +67,16 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-in-bottom": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+        fadeInBottom: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-
       },
       animation: {
-        "fade-in-bottom": "fade-in-bottom 1s ease-out forwards",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        'fade-in-bottom': 'fadeInBottom 1s ease-out',
+
       },
     },
   },
