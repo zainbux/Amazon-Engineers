@@ -42,7 +42,7 @@ const WorkWithUs = () => {
     };
 
   return (
-    <div className="min-h-screen flex items-center justify-center sm:p-32 sm:pt-32 md:py-32">
+    <div className="min-h-screen flex items-center justify-center sm:p-32 sm:pt-60 md:py-32">
       <div className="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-5xl p-5 lg:p-10">
         
         {/* Left Side: Image */}
