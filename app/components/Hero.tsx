@@ -34,9 +34,9 @@ const Hero = (props: Props) => {
   }, []);
 
   return (
-<div className='py-40 px-5 md:px-20 lg:px-36 flex flex-col lg:flex-row items-center justify-center gap-14 pb-40 sm:pt-40 md:pt-40'>
+<div className='py-40 px-5 md:px-20 lg:px-36 flex flex-col lg:flex-row items-center justify-center gap-14 pb-40 sm:pt-40 md:pt-64'>
 
-<div className='mb-20 lg:mb-0 lg:flex-1 text-center lg:text-left animate-fade-in-bottom'>
+<div className=' lg:mb-0 lg:flex-1 text-center lg:text-left animate-fade-in-bottom'>
     <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white animate-pulse'>Full Stack FBA DFY Agency</h1>
     <span className='block text-2xl md:text-5xl lg:text-5xl text-slate-500 font-bold mt-2'>Powering The Success Of Dozens of Businesses</span>  
     <p className="my-5 text-base md:text-lg lg:text-xl lg:pr-16 text-white">

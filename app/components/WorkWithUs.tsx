@@ -5,6 +5,9 @@ const WorkWithUs = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    budget: '',
+    store: '',
+    additionalInfo: '',
     message: '',
   });
 
@@ -17,103 +20,203 @@ const WorkWithUs = () => {
     });
   };
 
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('Sending...');
 
+    // Combine the form fields into the message
+    const combinedMessage = `
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Budget: ${formData.budget}
+      Store: ${formData.store === 'new' ? 'New Store' : 'Existing Store'}
+      Additional Information: ${formData.additionalInfo}
+    `;
+
     try {
-        const res = await fetch('/api/email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-    
-        if (res.ok) {
-          setStatus('Message sent successfully!');
-          setFormData({ name: '', email: '', message: '' });
-        } else {
-          setStatus('Failed to send message. was not received');
-        }
-      } catch (error) {
-        setStatus('Failed to send message. did not try');
+      const res = await fetch('/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, message: combinedMessage }),
+      });
+
+      if (res.ok) {
+        setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', budget: '', store: '', additionalInfo: '', message: '' });
+      } else {
+        setStatus('Failed to send message. It was not received.');
       }
-    };
+    } catch (error) {
+      setStatus('Failed to send message. It did not try.');
+    }
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center sm:p-32 sm:pt-60 md:py-32">
-      <div className="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-5xl p-5 lg:p-10">
+    <div className="min-h-screen flex items-center justify-center my-24">
+      <div className="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-7xl p-5 lg:p-10">
         
         {/* Left Side: Image */}
         <div className="lg:w-1/2 flex items-center justify-center">
           <img 
             src="/city.jpg" // Replace with your image path
             alt="Work with Us"
-            className="object-cover rounded-lg w-full h-64 lg:h-full"
+            className="object-cover w-full h-64 lg:h-full"
           />
         </div>
         
         {/* Right Side: Form */}
-        <div className="lg:w-1/2 mt-8 lg:mt-0 lg:pl-10 flex flex-col justify-center">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-center lg:text-left">Work with Us</h2>
-          
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label htmlFor="name" className="block text-lg font-medium text-gray-700">
-                Name
-              </label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                value={formData.name}
-                onChange={handleChange}
-                className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
-                required
-              />
-            </div>
+        <div className="w-full lg:w-1/2 bg-white p-6 flex flex-col justify-between shadow-lg h-full">
+          <div>
+            <h2 className="text-2xl font-bold mb-6">Work with Us</h2>
             
-            <div>
-              <label htmlFor="email" className="block text-lg font-medium text-gray-700">
-                Email
-              </label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
-                required
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-lg font-medium text-gray-700">
-                Message
-              </label>
-              <textarea 
-                id="message" 
-                name="message" 
-                rows={4} 
-                value={formData.message}
-                onChange={handleChange}
-                className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
-                required
-              />
-            </div>
-            
-            <div className="text-center lg:text-left">
-              <button 
-                type="submit" 
-                className="bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition">
-                Submit
-              </button>
-            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Name */}
+              <div>
+                <label className="block text-lg font-medium mb-2" htmlFor="name">Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg" 
+                  placeholder="Enter your name" 
+                />
+              </div>
 
-            {status && <p className="text-center text-lg mt-4">{status}</p>}
-          </form>
+              {/* Budget */}
+              <div>
+                <label className="block text-lg font-medium mb-2">Budget</label>
+                <div className="space-y-2">
+                  <label className="flex items-center">
+                    <input 
+                      type="radio" 
+                      name="budget" 
+                      value="500-1500" 
+                      checked={formData.budget === '500-1500'}
+                      onChange={handleRadioChange}
+                      className="mr-2" 
+                    />
+                    500-1500
+                  </label>
+                  <label className="flex items-center">
+                    <input 
+                      type="radio" 
+                      name="budget" 
+                      value="2000-4000" 
+                      checked={formData.budget === '2000-4000'}
+                      onChange={handleRadioChange}
+                      className="mr-2" 
+                    />
+                    2000-4000
+                  </label>
+                  <label className="flex items-center">
+                    <input 
+                      type="radio" 
+                      name="budget" 
+                      value="4500-8000" 
+                      checked={formData.budget === '4500-8000'}
+                      onChange={handleRadioChange}
+                      className="mr-2" 
+                    />
+                    4500-8000
+                  </label>
+                  <label className="flex items-center">
+                    <input 
+                      type="radio" 
+                      name="budget" 
+                      value="10000+" 
+                      checked={formData.budget === '10000+'}
+                      onChange={handleRadioChange}
+                      className="mr-2" 
+                    />
+                    10,000+
+                  </label>
+                </div>
+              </div>
+
+              {/* New or Existing Store */}
+              <div>
+                <label className="block text-lg font-medium mb-2">New or Existing Store</label>
+                <div className="space-y-2">
+                  <label className="flex items-center">
+                    <input 
+                      type="radio" 
+                      name="store" 
+                      value="new" 
+                      checked={formData.store === 'new'}
+                      onChange={handleRadioChange}
+                      className="mr-2" 
+                    />
+                    New
+                  </label>
+                  <label className="flex items-center">
+                    <input 
+                      type="radio" 
+                      name="store" 
+                      value="existing" 
+                      checked={formData.store === 'existing'}
+                      onChange={handleRadioChange}
+                      className="mr-2" 
+                    />
+                    Existing
+                  </label>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-lg font-medium mb-2" htmlFor="email">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg" 
+                  placeholder="Enter your email" 
+                />
+              </div>
+
+              {/* Additional Information */}
+              <div>
+                <label className="block text-lg font-medium mb-2" htmlFor="additionalInfo">Additional Information</label>
+                <textarea 
+                  id="additionalInfo" 
+                  name="additionalInfo"
+                  value={formData.additionalInfo}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg" 
+                  placeholder="Additional Info..."
+                  rows={4}
+                ></textarea>
+              </div>
+
+              {/* Submit Button */} 
+              <div>
+                <button 
+                  type="submit" 
+                  className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
+                  Submit
+                </button>
+                {status && <p className="text-center text-lg mt-4">{status}</p>}
+              </div>
+            </form>
+          </div>
+
+          {/* Service Agreement Notice */}
+          <div className="mt-8 text-sm text-gray-600">
+            By submitting this form, you acknowledge that there is a service agreement that ensures our liability in fulfilling our offer, providing you with a sense of security.
+          </div>
         </div>
         
       </div>
