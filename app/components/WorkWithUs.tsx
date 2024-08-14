@@ -101,45 +101,45 @@ const WorkWithUs = () => {
                     <input 
                       type="radio" 
                       name="budget" 
-                      value="$500-$1500" 
+                      value="500-1500" 
                       checked={formData.budget === '500-1500'}
                       onChange={handleRadioChange}
                       className="mr-2" 
                     />
-                    500-1500
+                    $500-$1500
                   </label>
                   <label className="flex items-center">
                     <input 
                       type="radio" 
                       name="budget" 
-                      value="$2000-$4000" 
+                      value="2000-4000" 
                       checked={formData.budget === '2000-4000'}
                       onChange={handleRadioChange}
                       className="mr-2" 
                     />
-                    2000-4000
+                    $2000-$4000
                   </label>
                   <label className="flex items-center">
                     <input 
                       type="radio" 
                       name="budget" 
-                      value="$4500-$8000" 
+                      value="4500-8000" 
                       checked={formData.budget === '4500-8000'}
                       onChange={handleRadioChange}
                       className="mr-2" 
                     />
-                    4500-8000
+                    $4500-$8000
                   </label>
                   <label className="flex items-center">
                     <input 
                       type="radio" 
                       name="budget" 
-                      value="$10000+" 
+                      value="10000+" 
                       checked={formData.budget === '10000+'}
                       onChange={handleRadioChange}
                       className="mr-2" 
                     />
-                    10,000+
+                    $10,000+
                   </label>
                 </div>
               </div>
