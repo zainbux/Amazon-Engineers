@@ -30,7 +30,7 @@ const Hero = (props: Props) => {
     // Trigger the animation when the component is mounted
     animateValue("clients-served", 0, 30, 2000);
     animateValue("wholesale-leads", 0, 50, 2000);
-    animateValue("revenue", 0, 1, 2000);
+    animateValue("revenue", 0, 2.1, 2000);
   }, []);
 
   return (
