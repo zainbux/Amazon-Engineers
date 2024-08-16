@@ -70,6 +70,7 @@ const WorkWithUs = () => {
         src="/video.mov" // Replace with the path to your video in the public folder
         className="object-cover w-full h-64 lg:h-full rounded-lg shadow-lg"
         controls
+        autoPlay
         loop
       >
         Your browser does not support the video tag.
