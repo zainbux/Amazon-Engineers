@@ -38,7 +38,7 @@ const Hero = (props: Props) => {
   
   useEffect(() => {
     // Trigger the animation when the component is mounted
-    animateValue("clients-served", 0, 30, 2000);
+    animateValue("clients-served", 0, 35, 2000);
     animateValue("wholesale-leads", 0, 50, 2000);
     animateValue("revenue",  2173020, 2173320, 2000);
   }, []);
@@ -47,10 +47,10 @@ const Hero = (props: Props) => {
 <div className='py-40 px-5 md:px-20 lg:px-36 flex flex-col lg:flex-row items-center justify-center gap-14 pb-40 sm:pt-40 md:pt-64'>
 
 <div className=' lg:mb-0 lg:flex-1 text-center lg:text-left animate-fade-in-bottom'>
-    <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white animate-pulse'>A-Z Amazon FBA Agency</h1>
-    <span className='block text-2xl md:text-5xl lg:text-5xl text-slate-500 font-bold mt-2'>Your one stop solution to everything Amazon FBA</span>  
+    <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white animate-pulse'>The A-Z FBA Agency</h1>
+    <span className='block text-2xl md:text-5xl lg:text-5xl text-slate-500 font-bold mt-2'>Your Comprehensive Solution for Amazon FBA Success</span>  
     <p className="my-5 text-base md:text-lg lg:text-xl lg:pr-16 text-white">
-        At Amazon Engineers we are all about giving the best margins possible.
+        At Amazon Engineers we're dedicated to maximizing your margins and optimizing every aspect of your Amazon FBA business.
     </p>
     <div className='mt-10'>
         <Link 
